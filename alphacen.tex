@@ -1,0 +1,443 @@
+\documentclass[final,t]{beamer}
+\usepackage[size=a0,orientation=portrait]
+%\usepackage[a0paper,portrait]{geometry}
+
+\mode<presentation>
+{
+   \usetheme{meridith15}
+}
+% additional settings
+\setbeamerfont{itemize}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+
+% additional packages
+\usepackage{times}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{exscale}
+\usepackage{caption}
+%\boldmath
+\usepackage{booktabs, array}
+%\usepackage{rotating} %sideways environment
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage[orientation=portrait,size=custom,width=160,height=200,scale=1.9]{beamerposter} %%% EDIT HERE TO CHANGE POSTER 
+% \usepackage[orientation=landscape,size=custom,width=200,height=160,scale=1.9]{beamerposter} %%% EDIT HERE TO CHANGE POSTER DIMENSION %200,120
+\usepackage{natbib} 
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{verbatim}
+
+\def\mnras{MNRAS}
+\def\aap{A\&A}
+\def\apj{ApJ}
+
+\title{\LARGE 
+Probing Convective Mixing in Stellar Interiors with {\bf \Huge $\alpha$} Centauri A and B}
+\author{  M. Joyce$^1$, B.\ Chaboyer$^1$}
+\institute{ $^1$Dartmouth College}
+
+% abbreviations
+\usepackage{xspace}
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+\def\eg{{e.g}\onedot} \def\Eg{{E.g}\onedot}
+\def\ie{{i.e}\onedot} \def\Ie{{I.e}\onedot}
+\def\cf{{c.f}\onedot} \def\Cf{{C.f}\onedot}
+\def\etc{{etc}\onedot}
+\def\vs{{vs}\onedot}
+\def\wrt{w.r.t\onedot}
+\def\dof{d.o.f\onedot}
+\def\etal{{et al}\onedot}
+\def\apj{ApJ}
+\def\apjl{ApJ Letters}
+\def\aap{A\&A}
+\def\pasp{PASP}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{frame}{} 
+  \begin{columns}[t]
+%BIG column 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{column}{.48\linewidth}
+
+\vskip-2.5
+
+
+%block 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{\centering ABSTRACT}
+{\footnotesize 
+The bright, nearby binary \alert{Alpha Centauri} provides an excellent laboratory for testing stellar evolution models. The mass, radius, and luminosity of Alpha Cen A and B are known to better than 1\% accuracy thanks to recent interferometric and adaptive optical observations (Kervella et al., 2017), and \alert{p-mode oscillations} have been observed in both stars. We present new stellar models which simultaneously fit the classical and seismic observations, with particular emphasis on the convective mixing length parameter $\alpha_{\text{MLT}}$---the adaptivity of which is necessary to fit the models to observations. The oscillation data provide an important constraint on the models: the small frequency separation is sensitive to the composition gradient in the core of the stars, while the large frequency separation constrains the mean density of the stars, providing an independent check on the mass and radius.% measurements. 
+}
+\end{block}
+
+\vskip0.9ex%------------------------------------------------------------------------------
+
+\begin{block}{\centering SATISFYING OBSERVATIONAL CONSTRAINTS}
+\vskip0.5ex 
+\centering
+\begin{figure}
+%\includegraphics[width=0.9\columnwidth]{{acen_AB_nested}.pdf}
+\includegraphics[width=0.9\columnwidth]{{acen_AB}.png}
+%\caption{}
+\end{figure}
+\vskip0.5ex
+\flushleft
+{\small
+All models shown were generated using the Dartmouth Stellar Evolution Program (DSEP) code (Dotter et al.\, 2008), using initial abundaces of $X_{\text{in}}=0.025 , Y_{\text{in}}=0.29$  for $\alpha$ cen A and $X_{\text{in}}=0.026 , Y_{\text{in}}=0.28$ for $\alpha$ cen B. Mixing lengths $\alpha_{\text{MLT}}$ are varied as shown. Boxed regions indicate observational constraints on radius and luminosity from Kervella et al.\ (2017). %The inner panel shows an enlarged view of the region surrounding $\alpha$ cen B's observational contraints, with the same units.
+}
+\vskip0.2ex
+\end{block}
+
+\vskip0.9ex%--------------------------------------------------------------------
+
+
+\begin{block}{\centering FINDING A COMMON AGE}
+%\alert{\bf Identifying Outliers}
+  \vskip0.5ex   
+    \begin{columns}[T]
+
+        \begin{column}{0.7\linewidth}
+        \vskip0.2ex
+        \centering
+        \includegraphics[width=\columnwidth]{{age_match_nested}.pdf} %use .png for more vertical spacing        
+        %\includegraphics[width=\columnwidth]{{common_age}.png}
+        \flushleft
+        {\small 
+        \vskip0.2ex
+        A matching pair $S_{p, A}, S_{p, B} $ satisfies the following criteria: }
+        \begin{itemize}
+        \small
+        \item[o] \small consistency of both model stars' luminosity, radius, and mass within the error bars reported by \cite{Kervella}%Kervella et al.\ (2017) 
+        \item[o] \small  consistency between the surface abundances $Z/X$ for both stars and with the value reported by \cite{Thoul}; %Thoul et al.\ 2003
+         this will necessarily require that $Z_{\text{in}}$ and $Y_{\text{in}}$ are similar
+        \item[o] \small the above conditions are met at a common age, but restricting to ages above 600 Myr to ensure we are extracting parameters at the relevant evolutionary phase 
+    
+        \end{itemize}
+        \end{column}
+
+
+        \begin{column}{0.29\linewidth}
+        \vskip0.2ex
+        \alert{\large Importance of a Common Age}
+        \vskip0.05ex
+        {  Because $\alpha$ cen A and B are members of the same system, models must satisfy their respective observational constraints \alert{at a common age}.
+        %, complicating the search for a complete set of fitting parameters significantly. 
+        %Because the additional imposition of a literature value for the age of the system would over-constrain the problem, 
+        We run a series of grids, with increasing refinement, over a parameter space consisting of variations in initial metallicity and helium abundances ($Z, Y$, respectively), mass, and \alert{mixing length $\alpha_{\text{MLT}}$}. We search for distinct sets of input parameters $S_p=\{ Z, Y, M, \alpha_{\text{MLT}} \}$ for each star which produce a match at any common age.
+        \vskip0.7ex
+Fits were found at a common age of 3.3 Gyr, as indicated to the left. This age is somewhat lower than what has been reported in previous work (see e.g.\ $\sim5$ to $6$ Gyr, Kim 1999).        
+         % The literature age is $\sim 5$ Gyr, whereas the age of closest agreement between $S_{p, A}$ and $S_{p, B}$ using DSEP models is found to be 3.3 Gyr, as indicated to the left. Error bars on the observations are multiplied by a factor of two for visibility.
+         }
+        
+        \end{column}
+
+
+    \end{columns}
+\end{block} 
+
+\vskip0.9ex%---------------------------------------------------------------
+
+\begin{block}{\centering MODEL GRID AND PARAMETERS}
+    \begin{columns}[T]
+        \begin{column}{0.38\linewidth}
+        \vskip-2.0ex
+            \flushleft
+            {\small
+            The input parameter spaces $S_p$ are sampled at the following \alert{initial} resolutions:
+            \vskip0.3ex $\alpha$ Cen A mass: 1.10 or 1.11 $(M_{\odot})$
+            \vskip0.3ex $\alpha$ Cen B mass: 0.93 or 0.94 $(M_{\odot})$
+
+            \vskip0.3ex $\alpha_{\text{MLT}}: 1.3$ to $2.0$, $\delta_{\text{step}} = 0.05$
+            \vskip0.3ex $Z_{\text{in}}: 0.01$ to $0.046$, $\delta_{\text{step}} =0.005$
+            \vskip0.3ex $Y_{\text{in}}: 0.25$ to $0.045$, $\delta_{\text{step}} =0.01$
+            
+            From these data, we iteratively isolate local minima and increase resolution on those regions until a match within specified tolerances is found. 
+            } 
+            \end{column}
+
+
+\begin{column}{0.6\linewidth}        
+\vskip1.2ex
+{\small 
+        \begin{table} 
+        \centering 
+\alert{Table 1:} Parameter sets $S_p$
+\vskip8pt
+        \begin{tabular}{l  @{\hspace{1em}} c @{\hspace{1em}}  c @{\hspace{1em}}  c @{\hspace{1em}}  c @{\hspace{1em}}  c @{\hspace{1em}}  c }
+        \hline \hline
+        %\vskip0.2ex
+        Star & Mass $M_{\odot}$ & $\alpha_{\text{MLT}}$ & Initial $Z_{in}$& Initial $Y_{in}$ & Age (Gyr) & Surf Z/X \\
+        \hline
+        $\alpha$ Cen A &  1.11  &  1.45  &  0.025  &  0.29  &  3.311  &  0.0347  \\
+        $\alpha$ Cen B &  0.93 &  1.8  &  0.026  &  0.28  &  3.236  &  0.0375  \\
+        % & & & & & & & \\
+        \hline
+        $\alpha$ Cen A &  1.11  &  1.45  &  0.025  &  0.29  &  3.311  &  0.0347  \\
+        $\alpha$ Cen B &  0.93 &  1.805  &  0.026  &  0.28  &  3.260  &  0.0375  \\
+        % & & & & & & & \\
+        \hline
+        $\alpha$ Cen A &  1.11  &  1.45  &  0.025  &  0.29  &  3.311  &  0.0347  \\
+        $\alpha$ Cen B &  0.93 &  1.81  &  0.026  &  0.28  &  3.294  &  0.0375  \\
+        % & & & & & & & \\
+         \hline
+        \end{tabular}
+	\vskip14pt
+        {Parameter combinations $S_p$ which fit all observational considerations as well as produce common ages between $\alpha$ Cen A \& B.}
+        \label{param}
+       \end{table}
+}
+        \end{column}
+    \end{columns}
+ \end{block}
+
+\vskip0.9ex%---------------------------------------------------------------
+
+\begin{block}{\centering NEED FOR ADAPTIVE MIXING LENGTH}%%%%%%%%%%%%%%%%%%%%%
+We find that, in order to produce any viable solution, we must invoke \alert{sub-solar mixing lengths} ($\alpha_{\odot}=1.9258$) for both stars!
+%\vskip0.2ex
+This conclusion supports a growing body of evidence suggesting that the use of a solar-calibrated mixing length is insufficient for modeling stars with non-solar chemical compositions (Joyce \& Chaboyer, 2017).
+\end{block}
+
+%\vskip1.5ex %---------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{column}
+
+
+
+
+
+
+
+\begin{column}{.48\linewidth}
+% BIG Column 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{\centering OBSERVATIONAL SYSTEM PARAMETERS}
+\begin{columns}[T]
+        \begin{column}{0.25\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{{alphacen_AB_hubble}.jpg}
+        \vskip0.2ex 
+
+        \end{column}
+
+
+        \begin{column}{0.74\linewidth}
+        \vskip1.7ex
+        { \small
+        \begin{table} 
+        \centering 
+\alert{Table 2:} Known System Parameters
+\vskip8pt
+        \begin{tabular}{ l @{\hspace{1em}} c @{\hspace{1em}}c @{\hspace{1em}}c  }  
+        \hline\hline
+       &  $\alpha$ Cen A    &   $\alpha$ Cen B & Reference \\ \hline
+        Mass  $M_{\odot}$     & $1.1055 \pm 0.004$   &   $0.9373 \pm 0.003$   & Kervella et al.\, 2017 \\
+        Radius $R_{\odot}$    &  $2.1983\pm0.008$   &   $0.8632\pm0.004$   & Kervella et al.\, 2017 \\
+        Luminosity $L_{\odot}$ & $1.521\pm0.015 $   &  $0.503\pm0.007 $    &  Kervella et al.\, 2017 \\
+        $Z/X$                    & $0.039\pm 0.006 $ &  $0.039\pm 0.006 $  & Thoul et al.\, 2003  \\
+         \hline
+        \end{tabular}
+        %\caption{Known System Parameters}
+        \end{table}
+        }
+        \flushleft
+        %{\footnotesize Image from Hubble} 
+        %\vskip0.5ex
+
+        \end{column}
+    \end{columns}
+            \centering
+            \alert{\large Data Collection}
+        \vskip0.2ex
+        \flushleft
+        {\small
+        Observations for $\alpha$ Cen B were collected in 2003 using the UVES spectrograph on the VLT at ESO, Chile, and using the UCLES spectrograph at the Anglo-Australian Telescope. At the VLT, 3379 spectra were obtained and the AAT, 1642 were obtained \cite{Kjeldsen}.
+        Observations for $\alpha$ Cen A were likewise collected using UVES and UCLES over the course of 5 nights \cite{Bazot}. 
+        %Bazot for A, which spectrographs, how many spectra, etc
+        The luminosity of the system is inferred via direct observation. The mass is inferred from the binary solution, and the radius is inferred from interferometry. The surface abundance $Z/X$ is obtained via high resolution spectroscopy. 
+        }
+\end{block}
+
+
+\vskip0.6ex%---------------------------------------------------------------------
+
+\begin{block}{\centering ASTEROSEISMIC ANALYSIS}%%%%%%%%%%%%%%%%%%%%%
+\begin{columns}[T]
+    \begin{column}{0.8\linewidth}
+    {\small
+    Integrating high-resolution evolutionary models from DSEP with the \alert{GYRE} stellar oscillation code (Townsend \& Teitler, 2013), we determine the resonant oscillation modes and frequency spacing for models of $\alpha$ Cen A and B generated using  parameter sets $S_{p,A}, S_{p,B}$ (values listed in columns 2--5 of Table 1) at the uncovered common age of 3.3 Gyr.
+   
+    GYRE can determine both the resonant acoustic/pressure modes, known as $p$ modes, as well as those induced by internal gravity waves ($g$ modes) of an evolutionary model. We are interested in $p$ modes because pressure waves are senstive to the outer convective envelope, and it is turbulence in this region which excites these modes. 
+    % \vskip1ex
+    
+    %While GYRE produces detailed information on individual frequency modes, 
+    From our models of the system, we extract parameters known as the large (eqn.\ 1) and small (eqn.\ 2) frequency spacings, defined as follows:
+    \begin{align}
+    \Delta \nu_{n,l} &= \nu_{n+1,l} - \nu_{n,l}
+    \\
+    \delta \nu_{n,l} &= \nu_{n,l} - \nu_{n-1,l+2}
+    \end{align}
+
+    where $n$ refers to \alert{radial order}, or the number of nodal surfaces in the radial direction. Parameter $l$ refers to the \alert{harmonic degree}, which, along with azimuthal order $m$, characterizes the behavior of the mode over the surface of the star.  
+    We validate against known solar values of $\Delta \nu_{n,l}$ and $\delta \nu_{n,l}$ by generating a solar model with DSEP and processing it with GYRE. 
+}
+    % \vskip1.5ex
+    % \flushleft
+    % {\footnotesize 
+    % Diagram taken from Figure 2 of M. P. Di Mauro (2017)'s asteroseismology review. 
+    % \vskip-0.2ex
+    % Propogation of the $p$ modes is shown above, $g$ modes below.
+    % }
+
+    \end{column}
+
+    \begin{column}{0.19\linewidth}
+        %\vskip0.2ex
+        \centering
+        \includegraphics[width=0.99\linewidth]{{pvsg}.png}
+        %\vskip0.2ex
+
+        % \flushleft
+        % {\footnotesize 
+        % Diagram taken from Figure 2 of M. P. Di Mauro (2017)'s asteroseismology review. Propogation of the $p$ modes is shown above, $g$ modes below.
+        % }
+    \end{column}
+  \end{columns}
+      \vskip1.5ex
+    \flushright
+    {\footnotesize 
+    Diagram taken from Figure 2 of M. P. Di Mauro (2017)'s asteroseismology review \cite{DiMauro}. 
+    %\vskip-0.2ex
+    Propogation of the $p$ modes is shown above, $g$ modes below.
+    }
+
+\end{block}
+
+\vskip0.6ex%---------------------------------------------------------
+
+\begin{block}{\centering ASTEROSEISMIC PARAMETERS: LITERATURE vs. DSEP }%%%%%%%%%%%%%%%%%%%%%
+{
+        \begin{table} 
+        \centering 
+        %\caption{}
+	\vskip-4pt
+	\alert{Table 3:} Frequency Spacing
+	\vskip8pt
+\begin{tabular}{l @{\hspace{1em}}l @{\hspace{1em}}l @{\hspace{1em}}l @{\hspace{1em}}l @{\hspace{1em}}l @{\hspace{1em}}l @{\hspace{1em}}l}  
+        \hline\hline
+         Object &  $\Delta \nu_{n,l}$  {\small (DSEP)} & $\delta \nu_{n,l}$  {\small (DSEP)}&  $\Delta \nu_{n,l}$  {\small (Lit)} &  $\delta \nu_{n,l}$ {\small (Lit)} & $\alpha_{\text{MLT}}$ {\small (DSEP)} & Reference {\small (Lit)}  
+        \\ \hline
+	Sun            & 137 \phantom{.0}   & 9    & 136       & 8        & 1.9258 & Broomhall et al.\, 2009  \\
+	$\alpha$ Cen A & 108.4              & 8    & 106 & 7 & 1.45 & Bazot et al.\, 2007  \\
+	$\alpha$ Cen B & 165.7              & 11.5    & 161.4     & 10         & 1.81 & Kjeldsen et al.\ 2005   \\
+         \hline
+        \end{tabular}
+       %\tablecomments{ These were generated with some kind of averaging}
+       \end{table}
+}
+\vskip0.2ex
+{\footnotesize All frequencies given in $\mu$Hz. Large frequency averages are computed for $l=0,1,2$ and $3$. Small frequency averages are presented for $l=0$ only. DSEP models used to generate these data are the last pair listed in Table 1.}
+\end{block}
+
+
+\vskip0.6ex%------------------------------------------------------------
+
+\begin{block}{\centering FREQUENCY SEPARATIONS}
+  \begin{columns}[T]
+    \begin{column}{0.5\linewidth}
+        %\vskip0.5ex
+        \centering
+        \includegraphics[width=0.9\linewidth]{{A_large}.png}
+        \vskip0.5ex
+        %\vskip0.5ex
+        \centering
+        \includegraphics[width=0.9\linewidth]{{A_small}.png}
+    \end{column}
+
+    \begin{column}{0.5\linewidth}
+        %\vskip0.5ex
+        \centering
+        \includegraphics[width=0.9\linewidth]{{B_large}.png}
+        \vskip0.5ex
+        %\vskip0.5ex
+        \centering
+        \includegraphics[width=0.9\linewidth]{{B_small}.png}
+    \end{column}
+    \end{columns}
+    \vskip0.5ex
+    { \small
+    Large ($\Delta \nu_{n,l}$) and small ($\delta \nu_{n,l}$) frequency spacings as determined by DSEP and GYRE are shown for $\alpha$ Cen A and B over radial orders $n=17 - 35$, a similar range used in the analyses of \cite{Bazot} and \cite{Kjeldsen}. 
+    The emergence of multiple large frequency spacing values at a given frequency is caused by considering multiple mode numbers simultaneously, in this case $l = 0,1,2,3$ and $4$. These are averaged in computing the average $\Delta \nu_{n,l}$ values reported in Table 3.
+    %\vskip0.1ex
+    This preliminary work indicates the power of the seismic data to further constrain the physics used in the stellar models.  We plan on examining other variations in the input physics (such as convective overshoot) in the future to determine if we can better fit these observations. 
+        }
+\end{block}
+
+\vskip1.2ex%---------------------------------------------------------
+
+
+\begin{block}{\centering REFERENCES}
+    { \footnotesize
+
+     \alert{This work is supported by grant AST-1211384 from the National Science Foundation. }
+     \vskip0.05ex
+
+    \begin{itemize}
+    \item[]\footnotesize \cite{Bazot} M.~{Bazot} et al.\, 
+    %F.~{Bouchy}, H.~{Kjeldsen}, S.~{Charpinet}, M.~{Laymand}, and  S.~{Vauclair}.
+   {Asteroseismology of {$\alpha$} Centauri A. Evidence of rotational splitting}. {\em \aap}, 470:295--302, July 2007.
+
+    \item[]\footnotesize \cite{Broomhall} A.-M. {Broomhall} et al.\
+    % W.~J. {Chaplin}, Y.~{Elsworth}, S.~T. {Fletcher}, and
+  %R.~{New}.
+  {Corrections of Sun-as-a-star p-mode frequencies for effects of the solar cycle}, August 2009.
+
+
+    \item[]\footnotesize \cite{DiMauro} M.~P. {Di Mauro}. {A review on Asteroseismology}. {\em ArXiv e-prints}, March 2017.
+
+    \item[]\footnotesize \cite{Kervella} P.~{Kervella}, L.~{Bigot}, A.~{Gallenne}, and F.~{Th{\'e}venin}. {The radii and limb darkenings of {$\alpha$} Centauri A and B Interferometric measurements with VLTI/PIONIER}. {\em \aap}, 597:A137, January 2017.
+
+    \item[]\footnotesize \cite{Kjeldsen}H.~{Kjeldsen} et al.\
+    %, T.~R. {Bedding}, R.~P. {Butler}, J.~{Christensen-Dalsgaard},
+  %L.~L. {Kiss}, C.~{McCarthy}, G.~W. {Marcy}, C.~G. {Tinney}, and J.~T.  {Wright}. 
+  {Solar-like Oscillations in {$\alpha$} Centauri B}. {\em \apj}, 635:1281--1290, December 2005.
+    \item[]\footnotesize \cite{Thoul} A.~{Thoul} et al.\
+    %, R.~{Scuflaire}, A.~{Noels}, B.~{Vatovez}, M.~{Briquet}, M.-A.{Dupret}, and J.~{Montalban}. 
+  {A new seismic analysis of Alpha Centauri}. {\em \aap}, 402:293--297, April 2003.
+
+    \item[]\footnotesize \cite{GYRE} R.~H.~D. {Townsend} and S.~A. {Teitler}.{GYRE: an open-source stellar oscillation code based on a new Magnus Multiple Shooting scheme}. {\em \mnras}, 435:3406--3418, November 2013.
+
+    \item[]\footnotesize [8] {M. Joyce} and {B. Chaboyer}. {Not All Stars are the Sun: Empirical Calibration of the Mixing Length for Metal-Poor Stars Using 1-D Stellar Evolution Models}, 2017 {\em \apj} {\it \footnotesize accepted with revisions}, September 2017
+    \end{itemize}
+    \vskip-1.15ex
+    }
+
+ \end{block}
+
+
+\end{column}
+
+
+
+
+  \end{columns}
+\end{frame}
+
+\bibliographystyle{plain}
+\bibliography{complicatedbib_17}
+
+
+
+
+\end{document}

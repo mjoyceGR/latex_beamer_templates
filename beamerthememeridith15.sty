@@ -1,0 +1,142 @@
+\ProvidesPackage{meridith} % this style was created by ME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\selectcolormodel{cmyk}
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% COLOR DEFINITIONS%%%%%%%%%%% COLOR LIBRARY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%HTML colors
+\definecolor{electricblue}{cmyk}{1,0.305,0,0.06} %accurate, def electric
+\definecolor{darkblue}{rgb}{0.0156,0.2578,0.5625} %more like royal
+
+
+\definecolor{i6colorscheme1}{RGB}{247,124,173}%{HTML}{A8EDAA}
+%%% above may be auto associated with TABLE label colors
+
+\definecolor{i6colorblockbg}{HTML}{0033cc}
+\definecolor{i6colorblockfg}{HTML}{FCE94F}
+\definecolor{i6colorscheme2}{HTML}{000000}  % e.g. title in headline
+\definecolor{i6colorscheme3}{HTML}{C3DFFF}  % e.g. for poster background
+\definecolor{i6colorscheme4}{HTML}{000000} 
+\definecolor{i6colorschemeHeadline}{HTML}{0033cc}  % for headline bg
+\definecolor{i6colorschemeFootline}{HTML}{100D09}  % for headline bg
+
+
+% RGB colors
+\definecolor{palegreen}{RGB}{180,250,180}%{152,250,152}%{190,250,208}
+\definecolor{normalblack}{RGB}{0,0,0} 
+\definecolor{palepink}{RGB}{ 245,198,232} %255, 229, 237} %
+
+\definecolor{maturepink}{RGB}{250,225,250} %pretty accurate
+
+
+\definecolor{hotpink}{RGB}{247,124,173}%{255,0,127}%{249,242,215}
+
+
+\definecolor{navy}{RGB}{0,0,51}%{26,18,69} % more like very deep violet
+%\definecolor{lightblue}{RGB}{126,118,169} % more like light purple marker
+\definecolor{lightblue}{RGB}{173,216,230}
+\definecolor{forestgreen}{RGB}{0,45,0}%{10,50,10} 
+\definecolor{basicgreen}{RGB}{0,150,30}
+\definecolor{normalwhite}{RGB}{250,250,250} %% "white" works fine
+
+%colors that matter for this scheme
+\definecolor{burgundy}{RGB}{132,10,63}%{102, 0, 33}
+\definecolor{lightsalmon}{RGB}{255,205, 205}%{255, 179, 179}
+\definecolor{desertblue}{RGB}{40,5,97}%{20,0,77}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% COLOR of entire background
+\setbeamercolor*{normal text}{bg=maturepink}
+
+% COLOR of individual blocks
+\setbeamercolor*{block body}{bg=forestgreen, fg=white} %fg=white,
+\setbeamercolor*{block title}{fg=white,bg=basicgreen}
+\setbeamerfont{block title}{size=\large,series=\bf}
+
+% headline colors and fonts
+\setbeamercolor{headline}{fg=white,bg=basicgreen}
+\setbeamercolor{logo in headline}{fg=white,bg=basicgreen}
+\setbeamercolor{separation line}{bg=basicgreen}
+  % Letters
+  \setbeamercolor{title in headline}{fg=white}
+  \setbeamercolor{author in headline}{fg=white}
+  \setbeamercolor{institute in headline}{fg=white}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=palepink}
+%\setbeamerfont{footline}{fg=white, size=\normalsize}
+
+% example environment
+\setbeamercolor*{example title}{fg=white,bg=forestgreen}
+%\setbeamerfont{example title}{size=\large,series=\bf,bg=forestgreen,fg=white}
+
+%% color for \alert{}
+\setbeamercolor{alerted text}{fg=hotpink}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%\setbeamercolor{labelfont}{hotpink}
+\setbeamercolor{caption name}{hotpink}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  %\vskip0ex %%% REMOVED BY ME 12/10 %0.75
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5ex}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{  
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+
+      \begin{column}{.2\paperwidth}
+      \vskip2ex
+      \hskip35ex
+      \includegraphics[width=0.35\columnwidth]{Dartmouthwhite2.png} %%%%%%%%%%%%% IMAGE HERE 
+      \vskip4ex
+      \end{column}
+
+      \begin{column}{.6\paperwidth}
+        \begin{center}
+         \vskip4ex
+        %\raggedleft
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+      	\end{center}
+        \vskip1ex
+      \end{column}
+
+      \begin{column}{0.2\paperwidth}
+      \vskip2ex
+      \hskip30ex
+      \includegraphics[width=0.35\columnwidth]{{NSF}.png} %%%%%%%%%%%%% IMAGE HERE
+      %\includegraphics[width=0.35\columnwidth]{{cs19sphere}.png} %%%%%%%%%%%%% IMAGE HERE
+
+      \vskip4ex
+      \end{column}
+
+    \end{columns}
+  \end{beamercolorbox}
+  
+  
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>

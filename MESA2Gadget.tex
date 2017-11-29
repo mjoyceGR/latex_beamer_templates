@@ -1,0 +1,413 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation> 
+\usetheme{default}
+\beamertemplatenavigationsymbolsempty 
+
+
+
+% ----------------------------- COLOR library ----------------------------------
+% RGB colors
+\definecolor{palegreen}{RGB}{180,250,180}%{152,250,152}%{190,250,208}
+\definecolor{normalblack}{RGB}{0,0,0} 
+\definecolor{palepink}{RGB}{ 245,198,232} %255, 229, 237} %
+\definecolor{maturepink}{RGB}{250,225,250} %pretty accurate
+\definecolor{hotpink}{RGB}{249,242,215}
+\definecolor{navy}{RGB}{0,0,51}%{26,18,69} % more like very deep violet
+%\definecolor{lightblue}{RGB}{126,118,169} % more like light purple marker
+\definecolor{lightblue}{RGB}{173,216,230}
+
+\definecolor{forestgreen}{RGB}{0,45,0}%{10,50,10} 
+
+\definecolor{normalwhite}{RGB}{250,250,250} %% "white" works fine
+
+%colors that matter for this scheme
+\definecolor{burgundy}{RGB}{120, 0, 43}
+\definecolor{lightsalmon}{RGB}{255, 179, 160}
+\definecolor{desertblue}{RGB}{60,0,80}
+
+
+
+\setbeamercolor{titlelike}{bg=forestgreen, fg=normalwhite }
+\setbeamercolor{normal text}{fg=normalwhite,bg=forestgreen}  %%% bg means background slide color
+\setbeamercolor{alerted text}{bg=burgundy, fg=normalwhite}
+
+
+%%%%%%%%%%%%%%%%% packages
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{graphicx,subfigure,geometry}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{bm}
+\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor=normalwhite}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\def\k{0.45}%{0.4} % tweak this for less horizontal space between images / to resize them
+\def\vgap{0.2em}%{0em} % tweak this for vertical spac
+
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{exscale}
+\usepackage{booktabs, array}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+
+
+
+
+\begin{document}
+
+
+% %----------------------------------------------------------------------------------------
+% %	PRESENTATION SLIDES
+% %----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+%\begin{centering}
+\vskip4ex
+{\Huge MESA2GADGET}
+\vskip0.5ex
+{\Large Bridging the Gap between 1D and 3D Stellar Models}
+%A Software Toolkit for Linking 1D and 3D Stellar Models}
+%\end{centering}
+\vskip10ex
+\flushright
+Meridith Joyce %$^{1}$
+\vskip0.5ex
+\footnotesize Ph.D. Candidate
+\vskip0.5ex
+\footnotesize Dartmouth
+\vskip0.5ex \footnotesize SAAO \& UCT
+%\vskip0.5ex \footnotesize UCT
+%\vskip3ex
+
+%\large University of the Western Cape
+\vskip1ex
+\flushright Oct 30$^\text{th}, 2017$
+ 
+ % \vskip1ex
+ % \flushleft \footnotesize $^{1}$now accepting postdoc offers
+\end{frame}
+
+%-----------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\begin{frame}
+%\begin{figure}
+\frametitle{Why?} 
+%{Motivation}
+\centering
+\includegraphics[width=\columnwidth]{{questionmark}.png} \vskip\vgap
+% \begin{itemize}
+% 	\item[] AGB stars are interesting because...
+% 	\begin{itemize}
+% 		\item[] NOT FILLED IN YET
+% 		\item[] impact of chemistry on thermal pulsations
+
+% 		\item[] dust grain formation $\rightarrow$ galaxy evolution insights
+% 	\end{itemize}
+% \end{itemize}
+%\end{figure}
+\end{frame}
+
+%---------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\begin{frame}
+
+\frametitle{Meet the Codes} 
+%: Modules for Experiments in Stellar Astrophysics}
+\centering
+\begin{figure}
+\centering
+\includegraphics[width=0.44\columnwidth]{{MESA}.png} \qquad \hskip2ex
+\includegraphics[width=0.45\columnwidth]{{Gadget}.png} 
+\vskip0.5ex
+{\footnotesize
+\begin{itemize}
+\item[] MESA: Modules for Experiments in Stellar Astrophysics
+	\begin{itemize}
+		\item[-] \footnotesize 1 dimensional stellar structure solver 
+		\item[-] \footnotesize highly customizable physical conditions
+
+	\end{itemize}
+\item[] GADGET: GAlaxies with Dark matter and Gas intEracT
+	\begin{itemize}
+		\item[-] \footnotesize N-body/SPH
+		\item[-] \footnotesize typically used for galactic and cosmological simulations
+		\item[-] \footnotesize SPH also useful for stellar atmospheres
+	\end{itemize}
+\end{itemize}	
+}
+%\includegraphics[width=\columnwidth]{{MESA}.png} 
+\end{figure}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+% \begin{frame}
+
+% \frametitle{Gadget: Smoothed Particle Hydrodynamics}
+% \centering
+% \begin{figure}
+% \includegraphics[width=\columnwidth]{{Gadget}.png} 
+% \end{figure}
+% \end{frame}
+
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\frametitle{TP-AGB Models}
+\centering
+\includegraphics[width=0.88\columnwidth]{{textbook02}.png} 
+%\qquad \hskip2ex
+%\includegraphics[width=0.44\columnwidth]{{textbook03}.png} 
+\vskip0.5ex
+% {\small
+% Either do this well or don't do it-- see how long I'm being given
+% }
+\end{figure}
+\end{frame}
+
+%---------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{\small Method}
+{\footnotesize
+\begin{itemize}
+\item[o] generate MESA density profile
+
+
+\item[o] subdivide into $k$ regions of varying size $(r_u - r_l)_{k}$ such that the number of particles $N$ is preserved per region and the mass per particle $m_p$ is preserved $\forall k$ 
+	\begin{itemize}
+		\item[-]\footnotesize requires either numerical integration or model fitting to find the mass contained per region, which determines $N$ (or $m_p$)
+	\end{itemize}	
+
+\item[o] distribute the $N$ particles contained in each region $k$ across the surface of a sphere of radius  $r_{\text{mid},k} = \frac{(r_u + r_l)_k}{2}$ 
+	\begin{itemize}
+		\item[-]\footnotesize care is required in selecting a particle distribution method that will minimize computational artifacts $\rightarrow$ HEALPix
+		%\item[-]\footnotesize we use HEALPIX
+	\end{itemize}	
+
+\item[o] stack these shells: $\forall k, x = x+x_{k}$ (same for $y, z$) at $r_{\text{mid},k}$
+	\begin{itemize}
+		\item[-] \footnotesize IMPORTANT! must arbitrarily rotate each shell or the particles will be ordered
+	\end{itemize}
+
+\item[o] send final $x, y, z$ arrays to a Gadget initial conditions (IC) generator 
+
+\item[o] VALIDATION!
+	\begin{itemize}
+		\item[-]\footnotesize Load the ICs! Check: does $\rho$ vs $r_k=\sqrt{x_k^2 + y_k^2 + z_k^2} \forall$ regions $k$ recover the initial radial sampling applied to MESA?
+	\end{itemize}
+
+\end{itemize}
+}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{\small Ohlmann et al., 2017}
+\begin{figure}
+\centering
+%\includegraphics[width=0.98\columnwidth]{{Pakmor_density_profiles}.png} \vskip\vgap
+\includegraphics[width=0.98\columnwidth]{{Ohlmann_density_profiles}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+%--------------------------------introduce rl, ru here ------------------------------
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[width=0.98\columnwidth]{{overlay_ru}.png} \vskip\vgap
+%\includegraphics[width=0.98\columnwidth]{{stacking_shells}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+%\frametitle{MESA profile processing}
+\centering
+\includegraphics[width=0.98\columnwidth]{{fit_region_formal}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Workflow}
+\begin{figure}
+\includegraphics[width=0.98\columnwidth]{{flowofcontrol}.png} \vskip\vgap
+\end{figure}
+
+\end{frame}
+
+%-------------------------from healpix paper-------------------------------------------------------------
+\begin{frame}
+\frametitle{\small HEALPix: Hierarchical Equal Area iso-Latitude Pixelization}
+\begin{figure}
+\centering
+\includegraphics[width=0.98\columnwidth]{{tessellation}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+% \frametitle{HEALPix: Hierarchical Equal Area iso-Latitude Pixelization}
+\centering
+\includegraphics[width=0.98\columnwidth]{{mollview_nest_w_coords}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\frametitle{HEALPix distribution for arbitrary shell $k$}
+\centering
+\includegraphics[width=0.98\columnwidth]{{raw_healpix_shell}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{\small Convergence Criteria: $n_1(r_u)$ and $n_2(r_u)$}
+{\small 
+Method: Impose two independent constraints and force their equality
+%: one physical, deriving from $M, \rho$, and one deriving from modeling limitations (HEALPix)
+\vskip0.5ex
+HEALPix tessellates a sphere into $12 n^2$ quadrilaterals for $n \in \{ 2^x \}; n,x \in \mathcal{Z}$
+\vskip0.5ex
+Let $n_1 $ s.t. $n_p = 12 n_1^2$, where $n_p = \frac{M_{\text{shell}}}{m_p}$, with $n_p$ the number of particles per shell
+\vskip0.5ex
+\small Then $ n_1  = \sqrt{\frac{ M_{\text{shell}}}{12m_p} } $, where $M_{\text{shell}}=M_{\text{shell}}(r_u, r_l)$
+\vskip0.5ex
+\small Now, let each quadrilateral have width $r_u -r_l$. The surface area of that quadrilateral is $(r_u - r_l)^2$
+\vskip0.5ex
+\small Simultaneously, the total surface area of the shell $k$ is $4\pi r_{\text{mid}}^2 =4\pi \frac{(r_u + r_l)}{2}^2$ 
+\vskip0.5ex
+\small HEALPix requires $12n_2^2$ partciles and $12n_2^2$ quadrilaterals via 1 particle per region constraint. Hence, $(r_u - r_l )^2 12 n_2^2 = 4 \pi \frac{(r_u+r_l)}{2}^2$  
+\vskip0.5ex
+\small  which gives $\rightarrow n_2 = \sqrt{\frac{\pi}{12}} \frac{r_u + r_l}{r_u - r_l}$. 
+\vskip0.5ex
+\small Because $n_1$ is a monotonically increasing function of $r_u$ and $n_2$ is monotonically decreasing, $\exists r_u$ s.t. $n_1 = n_2$*
+\vskip0.5ex
+\footnotesize *IGNORING all other constraints on $M_{\text{shell}}$
+}
+\end{frame}
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\frametitle{\small For fixed $r_l$ and increasing $r_u$}
+\centering
+\includegraphics[width=0.98\columnwidth]{{n1_vs_n2}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\frametitle{Convergence}
+\centering
+\includegraphics[width=0.98\columnwidth]{{find_intersection}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+
+
+
+% %--------------------------------------------------------------------------------------
+% \begin{frame}
+% \begin{figure}
+% \frametitle{Effect of ordered shell stacking}
+% \centering
+% \includegraphics[width=0.98\columnwidth]{{discrete_radial_effects_gadget}.png} \vskip\vgap
+% \end{figure}
+% \end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+%\frametitle{Final Form (N=8)}
+\centering
+\includegraphics[width=0.98\columnwidth]{{ordered_AGB_star}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+%\frametitle{MESA profile processing}
+\centering
+\includegraphics[width=0.98\columnwidth]{{projected_density_AGB140}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+%\frametitle{MESA profile processing}
+\centering
+\includegraphics[width=0.98\columnwidth]{{smoothed_projected_density_AGB140}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[width=0.98\columnwidth]{{rvr_all_p140_data}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{{rvr_all_p140_better}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Coming Soon...}
+\begin{figure}
+%\frametitle{MESA profile processing}
+\centering
+\includegraphics[width=0.98\columnwidth]{{github_screenshot}.png} \vskip\vgap
+\end{figure}
+\end{frame}
+
+
+
+\end{document} 
